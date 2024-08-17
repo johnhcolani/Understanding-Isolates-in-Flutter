@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -47,6 +48,8 @@ class MyApp extends StatelessWidget {
     const appTitle = 'Isolate Demo';
 
     return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+
       title: appTitle,
       home: MyHomePage(title: appTitle),
     );
@@ -63,6 +66,7 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
+        backgroundColor: Colors.grey.shade300
       ),
       body: FutureBuilder<List<Photo>>(
         future: fetchPhotos(http.Client()),
